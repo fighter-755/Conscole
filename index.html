@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Console Box</title>
+  <style>
+    body {
+      background-color: #000;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .console-box {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      width: 600px;
+      height: 1000px;
+      padding: 20px;
+      box-shadow: 0 0 20px #0f0;
+      overflow-y: auto;
+      border: 1px solid #0f0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="console-box" id="consoleBox"></div>
+
+<script>
+  const consoleBox = document.getElementById('consoleBox');
+  const messages = [
+    "[ABHI - XD INFO] System initializing...",
+    "[ABHI - XD INFO] Loading modules...",
+    "[ABHI - XD INFO] Connecting to database...",
+    "[ABHI - XD SUCCESS] Connection established.",
+    "[ABHI - XD INFO] Listening for commands...",
+    "[ABHI - XD WARNING] No user input detected.",
+    "[ABHI - XD INFO] Auto-check started...",
+    "[ABHI - XD INFO] Fetching updates...",
+    "[ABHI - XD SUCCESS] Update complete.",
+    "[ABHI - XD INFO] Running background tasks...",
+    "[ABHI - XD SUCCESS] Update packge.",
+    "[ABHI - XD USERS]  4,63663633,663 message sent.",
+    "[ABHI - XD SUCCESS] Python insralling....",
+    "[ABHI - XD PACKAGE] flask installing....",
+    "[ABHI - XD SUCCESS] requests insralling.....",
+    "[ABHI - XD TOKENS] Token checking.....",
+    "[ABHI - XD THREAID] Threaid id checking....",
+    "[ABHI - XD SUCCESS] post id checking....",
+    "[ABHI - XD TASK KEY] Task key updating....",
+    "[ABHI - XD SUCCESS] Npm installing....",
+    "[ABHI - XD VERSION] Version 4.5.0 install....",
+  ];
+
+  let i = 0;
+
+  function addMessage() {
+    const line = document.createElement('div');
+    line.textContent = messages[i % messages.length];
+    consoleBox.appendChild(line);
+    consoleBox.scrollTop = consoleBox.scrollHeight; // Auto-scroll to bottom
+    i++;
+    setTimeout(addMessage, 500); // Speed control
+  }
+
+  addMessage();
+</script>
+
+</body>
+</html>
